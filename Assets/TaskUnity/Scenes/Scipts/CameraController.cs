@@ -2,131 +2,121 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//public class CameraController : MonoBehaviour
-//{
-//    private List<Transform> targets = new List<Transform>();
-//    public float distance = 5.0f;
-//    public float sensitivity = 2.0f; // Чувствительность мыши
-//    public float verticalSpeed = 2.0f; // Скорость вертикального движения
-//    private Transform currentTarget;
-//    void Update()
-//    {
-//        if(Input.GetMouseButtonDown(0))
-//        {
-//            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-//            RaycastHit hit;
-//            if (Physics.Raycast(ray, out hit))
-//            {
-//                foreach (Transform target in targets)
-//                {
-//                    if (target == hit.transform)
-//                    {
-//                        SetTarget(target);
-//                        break; 
-//                    }
-//                }
-//            }
-//        }
-
-//        // Вращение камеры вокруг объекта
-//        if (currentTarget != null)
-//        {
-//            if (Input.GetMouseButton(1)) 
-//            {
-//                float horizontal = Input.GetAxis("Mouse X") * sensitivity;
-//                float vertical = Input.GetAxis("Mouse Y") * sensitivity;
-
-//                transform.RotateAround(currentTarget.position, Vector3.up, horizontal);
-//                transform.RotateAround(currentTarget.position, transform.right, -vertical);
-//            }
-
-//            float verticalInput = Input.GetAxis("Mouse Y");
-//            transform.Translate(Vector3.up * verticalInput * verticalSpeed * Time.deltaTime);
-//        }
-//    }
-
-//    public void SetTarget(Transform newTarget)
-//    {
-//        currentTarget = newTarget;
-//        // Перемещение камеры к целевому объекту
-
-//        if (currentTarget != null)
-//        {
-//            Vector3 newPosition = currentTarget.position - currentTarget.forward * distance;
-//            transform.position = newPosition;
-//            transform.LookAt(currentTarget.position);
-//        }
-//    }
-
-//    public void AddTarget(Transform newTarget) 
-//    {
-//        targets.Add(newTarget);
-//        SetTarget(newTarget);
-//    }
-//}
-
-
 public class CameraController : MonoBehaviour
-{
-    public float distance = 5.0f;
-    public float sensitivity = 2.0f;
-
+{    
     private float _zoomSpeed = 10;
-
-    [SerializeField] private GameObject _itemInfoCanvas;
     private Camera _camera;
     private List<Transform> targets = new List<Transform>();
     private Transform currentTarget;
+    private float initialDistance;
+
+    // эти переменные для вращения камерой
+    private float currentAngleX = 0f;
+    private float currentAngleY = 0f; 
+
+    public Vector3 initialPosition;
+    public float rotationSpeed = 5.0f;
+    public float distance = 5.0f;
+    public float sensitivity = 2.0f;
 
     void Start() 
     {
         _camera = Camera.main;
+        initialDistance = distance;
+        initialPosition = transform.position;
     }
-
 
     void Update()
     {
-        if (!_itemInfoCanvas.activeSelf)
+        if (currentTarget == null)
         {
-            float mouseY = Input.GetAxis("Mouse Y");
-            if (Input.GetMouseButton(0))
-            {
-                transform.RotateAround(transform.position, Vector3.right, mouseY * sensitivity);
-            }
-
-            if (_camera.orthographic)
-            {
-                _camera.orthographicSize -= Input.GetAxis("Mouse ScrollWheel") * _zoomSpeed;
-            }
-            else
-            {
-                _camera.fieldOfView -= Input.GetAxis("Mouse ScrollWheel") * _zoomSpeed;
-            }
-
-            if (currentTarget != null)
-            {
-                transform.LookAt(currentTarget.position);
-            }
+            HandleCameraMovementAndRotation();
+        }
+        else
+        {
+            HandleCameraMovementAroundSelectedObject();
+            HandleCameraZoom();
         }
     }
-
-
-    public void AddTarget(Transform newTarget)
+    
+    public void returnPos() 
     {
-        targets.Add(newTarget);
-        SetTarget(newTarget);
-        // Set the current target to the newly added target
+        _camera.transform.rotation = Quaternion.identity;
+        transform.position = initialPosition;
+        _camera.fieldOfView = 60.0f;
     }
 
     public void SetTarget(Transform newTarget)
     {
         currentTarget = newTarget;
 
-        // Move the camera to the new target if (currentTarget != null)
+        if (currentTarget != null)
         {
-            Vector3 newPosition = currentTarget.position + currentTarget.forward * distance;
+            UpdateCameraPositionAndRotation();
+        }
+    }
+
+    private void UpdateCameraPositionAndRotation()
+    {
+        if (currentTarget != null)
+        {
+            Vector3 newPosition = currentTarget.position + currentTarget.forward * -100.0f;
             transform.position = newPosition;
-            transform.LookAt(currentTarget.position);
+            transform.LookAt(currentTarget);
+        }
+    }
+
+    private void HandleCameraMovementAndRotation()
+    {
+        float mouseY = Input.GetAxis("Mouse Y");
+
+        if (Input.GetMouseButton(0))
+        {
+            transform.RotateAround(transform.position, Vector3.right, mouseY * sensitivity);
+        }
+
+        if (_camera.orthographic)
+        {
+            _camera.orthographicSize -= Input.GetAxis("Mouse ScrollWheel") * _zoomSpeed;
+        }
+        else
+        {
+            _camera.fieldOfView -= Input.GetAxis("Mouse ScrollWheel") * _zoomSpeed;
+        }
+    }
+
+    private void HandleCameraMovementAroundSelectedObject()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            float mouseX = Input.GetAxis("Mouse X") * rotationSpeed;
+            float mouseY = Input.GetAxis("Mouse Y") * rotationSpeed;
+
+            currentAngleX += mouseX;
+            currentAngleY -= mouseY;
+
+            // Ограничиваем вертикальный угол вращения
+            currentAngleY = Mathf.Clamp(currentAngleY, -80.0f, 80.0f);
+
+            Quaternion rotation = Quaternion.Euler(currentAngleY, currentAngleX, 0);
+            Vector3 direction = rotation * new Vector3(0, 0, -initialDistance);
+            transform.position = currentTarget.position + direction * initialDistance;
+
+            transform.LookAt(currentTarget);
+        }
+    }
+
+    private void HandleCameraZoom()
+    {
+        if (_camera.orthographic)
+        {
+            _camera.orthographicSize -= Input.GetAxis("Mouse ScrollWheel") * _zoomSpeed;
+            _camera.orthographicSize = Mathf.Clamp(_camera.orthographicSize, 1f, 20f);
+        }
+        else
+        {
+            _camera.fieldOfView -= Input.GetAxis("Mouse ScrollWheel") * _zoomSpeed;
+            _camera.fieldOfView = Mathf.Clamp(_camera.fieldOfView, 10f, 180f);
         }
     }
 }

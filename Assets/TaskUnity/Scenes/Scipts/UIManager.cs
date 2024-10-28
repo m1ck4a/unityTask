@@ -3,241 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//public class UIManager : MonoBehaviour
-//{
-//    public ItemInfo selectedObject; // Объект, с которым взаимодействуем
-//    public Slider transparencySlider;
-//    public Image colorImage1;
-//    public Image colorImage2;
-//    public Image colorImage3;
-//    public Toggle visibilityToggle;
-//    public Color selectedColor;
-//    public GameObject togglePrefab;
-//    public Transform toggleContainer;
-//    public SelectedObjectManager selectedObjectManager;
-
-
-//    void Start()
-//    {
-//        transparencySlider.onValueChanged.AddListener(SetTransparency);
-//        colorImage1.GetComponent<Button>().onClick.AddListener(() => SetColor(colorImage1.color));
-//        colorImage2.GetComponent<Button>().onClick.AddListener(() => SetColor(colorImage2.color));
-//        visibilityToggle.onValueChanged.AddListener(ToggleVisibility);
-//    }
-
-//    void Update() 
-//    {
-//        UpdateToggleList();
-//    }
-
-//    void UpdateToggleList()
-//    {
-//        foreach (Transform child in toggleContainer)
-//        {
-//            Destroy(child.gameObject);
-//        }
-
-//        foreach (var obj in selectedObjectManager.selectedObjects)
-//        {
-//            GameObject toggleObject = Instantiate(togglePrefab, toggleContainer);
-//            Toggle toggle = toggleObject.GetComponent<Toggle>();
-//            toggle.isOn = true; // Установите по умолчанию в "включено"
-//            toggle.GetComponentInChildren<Text>().text = obj.name; // Установите текст на имя объекта
-//            toggle.onValueChanged.AddListener((isOn) =>
-//            {
-//                if (isOn)
-//                {
-//                    // Действия при включении чекбокса
-//                    selectedObject.Select();
-//                }
-//                else
-//                {
-//                    // Действия при выключении чекбокса
-//                    selectedObject.Deselect();
-//                }
-//            });
-//        }
-//    }
-
-//    void SetTransparency(float alpha)
-//    {
-//        foreach(var obj in selectedObjectManager.selectedObjects) 
-//        {
-//            selectedObject = obj.GetComponent<ItemInfo>();
-//            if(selectedObject != null) 
-//            {
-//                selectedObject.setTransparency(alpha);
-//            } 
-//        }
-//    }
-
-//    void SetColor(Color color)
-//    {
-//        selectedColor = color; // Сохраняем выбранный цвет
-//        foreach (var obj in selectedObjectManager.selectedObjects)
-//        {
-//            selectedObject = obj.GetComponent<ItemInfo>();
-//            if (selectedObject != null)
-//            {
-//                selectedObject.setColor(selectedColor); // Устанавливаем цвет }
-//            }
-//        }
-//    }
-
-//    void ToggleVisibility(bool isVisible)
-//    {
-//        Debug.Log("ОН НЕ ИНВИЗ");
-//        foreach (var obj in selectedObjectManager.selectedObjects)
-//        {
-//            selectedObject = obj.GetComponent<ItemInfo>();
-//            if (selectedObject != null)
-//            {
-//                selectedObject.toggleVisibility();
-//            }
-//        }
-//    }
-
-//    public void SelectObject(ItemInfo obj)
-//    {
-//        selectedObject = obj;
-//    }
-//}
-
-using UnityEngine;
-using UnityEngine.UI;
-using System.Collections.Generic;
-using System.Linq;
-
-//public class UIController : MonoBehaviour
-//{
-//    public GameObject panel; // Панель контекстного меню
-//    public GameObject buttonPrefab; // Шаблон кнопки
-//    public List<GameObject> objects; // Список объектов
-//    private List<GameObject> selectedObjects = new List<GameObject>(); // Выделенные объекты
-
-//    void Start()
-//    {
-//        // Инициализация списка объектов (пример)
-//        objects = new List<GameObject>(GameObject.FindGameObjectsWithTag("MyTag")); // Замените на ваш тег
-//        panel.SetActive(false); // Скрыть панель по умолчанию
-//    }
-
-//    void Update()
-//    {
-//        if (Input.GetMouseButtonDown(1)) 
-//        {// Проверяем нажатие правой кнопки мыши {
-//            ShowContextMenu();
-//        }
-//        if (!panel.activeSelf || !RectTransformUtility.RectangleContainsScreenPoint(panel.GetComponent<RectTransform>(), Input.mousePosition))
-//        {       
-//            HideContextMenu();
-
-//        }
-//        if (Input.GetMouseButtonDown(0))
-//        {
-//            SelectObjectUnderMouse();
-//        }
-//    }
-
-//    void ShowContextMenu()
-//    {
-//        // Получаем озицию мыши и устанавливаеманель
-//        Vector3 mousePosition = Input.mousePosition;
-//        panel.transform.position = mousePosition;
-//        panel.SetActive(true);
-
-//        // Очищаем предыдущие кнопки
-//        foreach (Transform child in panel.transform)
-//        {
-//            if (child.gameObject != buttonPrefab)
-//            {
-//                Destroy(child.gameObject);
-//            }
-//        }
-//        foreach (GameObject obj in selectedObjects)
-//        {
-//            GameObject button = Instantiate(buttonPrefab, panel.transform);
-//            button.SetActive(true);
-//            button.GetComponentInChildren<Text>().text = "Action on " + obj.name; // Пример текста кнопки
-//            button.GetComponent<Button>().onClick.AddListener(() => OnActionButtonClicked(obj));
-//        }
-//        Debug.Log("Последний выбранный объект: " + selectedObjects.Last());
-//    }
-//    void OnActionButtonClicked(GameObject obj)
-//    {
-//        // Здесь вы можете добавить функционал для работы с объектом
-//        Debug.Log("Action performed on: " + obj.name);
-//        // Например, вы можете изменить цвет или выполнить другие действия
-//    }
-
-//    void SelectObjectUnderMouse()
-//{
-//    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-//    RaycastHit hit;
-
-//    if (Physics.Raycast(ray, out hit))
-//    {
-//        GameObject obj = hit.collider.gameObject;
-
-//        if (obj.CompareTag("MyTag")) // Проверяем, что объект имеет тег "Selectable"
-//        {
-//            if (selectedObjects.Contains(obj))
-//            {
-//                selectedObjects.Remove(obj); // Убираем из выделенных
-//                DeselectObject(obj); // Убираем визуальное выделение
-//            }
-//            else
-//            {
-//                selectedObjects.Add(obj); // Добавляем в выделенные
-//                SelectObject(obj); // Добавляем визуальное выделение
-//            }
-//        }
-//    }
-//}
-
-//void SelectObject(GameObject obj)
-//{
-//    Renderer renderer = obj.GetComponent<Renderer>();
-//    if (renderer != null)
-//    {
-//        // Сохраняем оригинальный цвет, если нужно
-//        Color originalColor = renderer.material.color;
-//        // Меняем цвет на выделенный
-//        renderer.material.color = Color.yellow; // Цвет выделения
-//    }
-//}
-
-//void DeselectObject(GameObject obj)
-//{
-//    Renderer renderer = obj.GetComponent<Renderer>();
-//        if (renderer != null)
-//        {
-//            // Возвращаем оригинальный цвет (если вы его сохранили)
-//            renderer.material.color = Color.white;
-//        } // Или используйте сохраненный цвет }
-//    }
-
-//    public void HideContextMenu()
-//    {
-//        panel.SetActive(false); // Скрыть панель
-//    }
-//}
-
 public class UIController : MonoBehaviour
-{
-    public GameObject panel; // Панель контекстного меню
-    public GameObject togglePrefab; // Шаблон Toggle
-    public List<GameObject> objects; // Список объектов
+{ 
     private List<GameObject> selectedObjects = new List<GameObject>(); // Выделенные объекты
 
+    public GameObject panel; // Панель контекстного меню
+    public GameObject mainPanel; // Панель контекстного меню
+    public GameObject togglePrefab; // Шаблон Toggle
+    public List<GameObject> objects; // Список объектов
     public Slider transparencySlider; // Слайдер для прозрачности
     public Dropdown colorDropdown; // Дропдаун для выбора цвета
-    public Toggle visibleToggle;
+    public Toggle visibleToggle; // Чекбокс для видимый/невидимый объект
+    public CameraController cameraController; // Камера контроллер (для запрета)
 
     void Start()
     {
         objects = new List<GameObject>(GameObject.FindGameObjectsWithTag("MyTag"));
         panel.SetActive(false);
+        mainPanel.SetActive(false);
 
         colorDropdown.ClearOptions();
         transparencySlider.gameObject.SetActive(false);
@@ -255,11 +38,11 @@ public class UIController : MonoBehaviour
         {
             ShowContextMenu();
         }
-        if (!panel.activeSelf || !RectTransformUtility.RectangleContainsScreenPoint(panel.GetComponent<RectTransform>(), Input.mousePosition))
+        if (!mainPanel.activeSelf || !RectTransformUtility.RectangleContainsScreenPoint(mainPanel.GetComponent<RectTransform>(), Input.mousePosition))
         {
             HideContextMenu();
         }
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !mainPanel.activeSelf)
         {
             SelectObjectUnderMouse();
         }
@@ -267,9 +50,13 @@ public class UIController : MonoBehaviour
 
     void ShowContextMenu() 
     { 
-    // Получаем позицию мыши и устанавливаем панель
         Vector3 mousePosition = Input.mousePosition;
-        panel.transform.position = mousePosition;
+        mainPanel.transform.position = mousePosition;
+        mainPanel.SetActive(true);
+        if (cameraController != null)
+        {
+            cameraController.enabled = false;
+        }
         panel.SetActive(true);
         transparencySlider.gameObject.SetActive(true);
         colorDropdown.gameObject.SetActive(true);
@@ -287,10 +74,8 @@ public class UIController : MonoBehaviour
         {
             GameObject toggle = Instantiate(togglePrefab, panel.transform);
             toggle.SetActive(true);
-            toggle.GetComponentInChildren<Text>().text = obj.name; 
-            Toggle toggleComponent = toggle.GetComponent<Toggle>();
-            toggleComponent.isOn = true; 
-            toggleComponent.onValueChanged.AddListener((isOn) => OnToggleChanged(obj, isOn));
+            toggle.GetComponentInChildren<Text>().text = obj.name; Toggle toggleComponent = toggle.GetComponent<Toggle>();
+            toggleComponent.isOn = selectedObjects.Contains(obj); toggleComponent.onValueChanged.AddListener((isOn) => OnToggleChanged(obj, isOn));
         }
     }
 
@@ -299,10 +84,12 @@ public class UIController : MonoBehaviour
         if (isOn)
         {
             selectedObjects.Add(obj);
+            SelectObject(obj);
         }
         else
         {
             selectedObjects.Remove(obj);
+            DeselectObject(obj);
         }
     }
 
@@ -367,10 +154,34 @@ public class UIController : MonoBehaviour
         Renderer renderer = obj.GetComponent<Renderer>();
         if (renderer != null)
         {
+            // Проверяем наличие материала
             Material material = renderer.material;
-            Color color = material.color;
-            color.a = value;
-            material.color = color;
+            if (material != null)
+            {
+                // Проверяем, является ли материал экземпляром Material
+                if (material is Material)
+                {
+                    Debug.Log("Материал: " + material.name);
+                    // Устанавливаем шейдер, который поддерживает прозрачность
+                    //material.shader = Shader.Find("Transparent/Diffuse");
+                    Color color = material.color;
+                    color.a = value;
+
+                    material.color = color;
+                }
+                else
+                {
+                    Debug.LogError("Материал не является экземпляром Material.");
+                }
+            }
+            else
+            {
+                Debug.LogError("У объекта нет материала.");
+            }
+        }
+        else
+        {
+            Debug.LogError("Компонент Renderer не найден на объекте.");
         }
     }
 
@@ -396,7 +207,7 @@ public class UIController : MonoBehaviour
                     SelectObject(obj);
                 }
             }
-        }
+        }   
     }
 
     void SelectObject(GameObject obj)
@@ -405,21 +216,34 @@ public class UIController : MonoBehaviour
         if (renderer != null)
         {
             Color originalColor = renderer.material.color;
-            renderer.material.color = Color.yellow; 
+            renderer.material.color = Color.yellow;
+            cameraController.SetTarget(obj.transform);
         }
     }
 
     void DeselectObject(GameObject obj)
     {
         Renderer renderer = obj.GetComponent<Renderer>();
-        if (renderer != null)
+        Color prevColor = renderer.material.color;
+        if (renderer != null && prevColor != Color.yellow)
+        {
+            renderer.material.color = prevColor;
+        }
+        else 
         {
             renderer.material.color = Color.white;
         }
+        cameraController.SetTarget(null);
+        cameraController.returnPos();
     }
 
     public void HideContextMenu()
     {
+        mainPanel.SetActive(false);
+        if (cameraController != null)
+        {
+            cameraController.enabled = true; // Включаем управление камерой
+        }
         panel.SetActive(false);
         transparencySlider.gameObject.SetActive(false);
         colorDropdown.gameObject.SetActive(false);

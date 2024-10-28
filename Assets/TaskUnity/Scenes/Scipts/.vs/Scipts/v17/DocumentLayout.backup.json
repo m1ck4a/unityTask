@@ -1,0 +1,150 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\TestCase\\TaskUnity\\TaskUnity\\Assets\\TaskUnity\\Scenes\\Scipts\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\TestCase\\TaskUnity\\TaskUnity\\Assets\\TaskUnity\\Scenes\\Scipts\\UIManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UIManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\TestCase\\TaskUnity\\TaskUnity\\Assets\\TaskUnity\\Scenes\\Scipts\\VisibleToggle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:VisibleToggle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\TestCase\\TaskUnity\\TaskUnity\\Assets\\TaskUnity\\Scenes\\Scipts\\CanvasScript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CanvasScript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\TestCase\\TaskUnity\\TaskUnity\\Assets\\TaskUnity\\Scenes\\Scipts\\CameraController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CameraController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\TestCase\\TaskUnity\\TaskUnity\\Assets\\TaskUnity\\Scenes\\Scipts\\ItemInfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ItemInfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\TestCase\\TaskUnity\\TaskUnity\\Assets\\TaskUnity\\Scenes\\Scipts\\ObjectPropertiesMenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ObjectPropertiesMenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\TestCase\\TaskUnity\\TaskUnity\\Assets\\TaskUnity\\Scenes\\Scipts\\SelectedObjectManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SelectedObjectManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CanvasScript.cs",
+              "DocumentMoniker": "D:\\TestCase\\TaskUnity\\TaskUnity\\Assets\\TaskUnity\\Scenes\\Scipts\\CanvasScript.cs",
+              "RelativeDocumentMoniker": "CanvasScript.cs",
+              "ToolTip": "D:\\TestCase\\TaskUnity\\TaskUnity\\Assets\\TaskUnity\\Scenes\\Scipts\\CanvasScript.cs",
+              "RelativeToolTip": "CanvasScript.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T22:06:58.247Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "VisibleToggle.cs",
+              "DocumentMoniker": "D:\\TestCase\\TaskUnity\\TaskUnity\\Assets\\TaskUnity\\Scenes\\Scipts\\VisibleToggle.cs",
+              "RelativeDocumentMoniker": "VisibleToggle.cs",
+              "ToolTip": "D:\\TestCase\\TaskUnity\\TaskUnity\\Assets\\TaskUnity\\Scenes\\Scipts\\VisibleToggle.cs",
+              "RelativeToolTip": "VisibleToggle.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T21:30:47.041Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ObjectPropertiesMenu.cs",
+              "DocumentMoniker": "D:\\TestCase\\TaskUnity\\TaskUnity\\Assets\\TaskUnity\\Scenes\\Scipts\\ObjectPropertiesMenu.cs",
+              "RelativeDocumentMoniker": "ObjectPropertiesMenu.cs",
+              "ToolTip": "D:\\TestCase\\TaskUnity\\TaskUnity\\Assets\\TaskUnity\\Scenes\\Scipts\\ObjectPropertiesMenu.cs",
+              "RelativeToolTip": "ObjectPropertiesMenu.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T11:26:43.844Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SelectedObjectManager.cs",
+              "DocumentMoniker": "D:\\TestCase\\TaskUnity\\TaskUnity\\Assets\\TaskUnity\\Scenes\\Scipts\\SelectedObjectManager.cs",
+              "RelativeDocumentMoniker": "SelectedObjectManager.cs",
+              "ToolTip": "D:\\TestCase\\TaskUnity\\TaskUnity\\Assets\\TaskUnity\\Scenes\\Scipts\\SelectedObjectManager.cs",
+              "RelativeToolTip": "SelectedObjectManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T09:05:48.898Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UIManager.cs",
+              "DocumentMoniker": "D:\\TestCase\\TaskUnity\\TaskUnity\\Assets\\TaskUnity\\Scenes\\Scipts\\UIManager.cs",
+              "RelativeDocumentMoniker": "UIManager.cs",
+              "ToolTip": "D:\\TestCase\\TaskUnity\\TaskUnity\\Assets\\TaskUnity\\Scenes\\Scipts\\UIManager.cs",
+              "RelativeToolTip": "UIManager.cs",
+              "ViewState": "AgIAAIYBAAAAAAAAAAAUwKwBAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T08:12:13.859Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ItemInfo.cs",
+              "DocumentMoniker": "D:\\TestCase\\TaskUnity\\TaskUnity\\Assets\\TaskUnity\\Scenes\\Scipts\\ItemInfo.cs",
+              "RelativeDocumentMoniker": "ItemInfo.cs",
+              "ToolTip": "D:\\TestCase\\TaskUnity\\TaskUnity\\Assets\\TaskUnity\\Scenes\\Scipts\\ItemInfo.cs",
+              "RelativeToolTip": "ItemInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T22:54:54.628Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CameraController.cs",
+              "DocumentMoniker": "D:\\TestCase\\TaskUnity\\TaskUnity\\Assets\\TaskUnity\\Scenes\\Scipts\\CameraController.cs",
+              "RelativeDocumentMoniker": "CameraController.cs",
+              "ToolTip": "D:\\TestCase\\TaskUnity\\TaskUnity\\Assets\\TaskUnity\\Scenes\\Scipts\\CameraController.cs",
+              "RelativeToolTip": "CameraController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T15:02:11.843Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
